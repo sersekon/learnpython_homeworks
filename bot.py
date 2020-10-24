@@ -17,16 +17,11 @@ def talk_to_me(update, context):
     print(user_text)
     update.message.reply_text(user_text)
 
-def talk_to_me(update, context):
-     user_text = update.message.text 
-     user_text = update.message.text
-     print(user_text)
-     update.message.reply_text(user_text)
-
 def echo_planet(update, context):
     text = 'Вызвана команда /planet'
     print(text)
     user_input = update.message.text.split()[-1]
+    user_input = user_input.capitalize()
     planet = getattr(ephem, user_input)(datetime.date.today())
     const = ephem.constellation(planet)
     const = user_input + ' находится в созвездии {}'.format(const[1])
